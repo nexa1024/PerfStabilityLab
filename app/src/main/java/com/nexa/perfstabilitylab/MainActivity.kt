@@ -3,11 +3,11 @@ package com.nexa.perfstabilitylab
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.Placeholder
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import com.google.android.material.appbar.MaterialToolbar
+import com.nexa.perfstabilitylab.ui.home.LabListFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.main_container, PlaceholderFragment())
+                .replace(R.id.main_container, LabListFragment())
                 .commit()
         }
     }
