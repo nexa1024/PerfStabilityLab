@@ -12,6 +12,8 @@ class LabListAdapter(
     private val items: List<LabItem>
 ) : RecyclerView.Adapter<LabListAdapter.VH>() {
 
+    var onItemClickListener: ((LabItem) -> Unit)? = null
+
     class VH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val title: TextView = itemView.findViewById(R.id.tv_title)
         val desc: TextView = itemView.findViewById(R.id.tv_desc)
@@ -26,6 +28,10 @@ class LabListAdapter(
         val item = items[position]
         holder.title.text = item.title
         holder.desc.text = item.desc
+
+        holder.itemView.setOnClickListener {
+            onItemClickListener?.invoke(item)
+        }
     }
 
     override fun getItemCount(): Int = items.size
