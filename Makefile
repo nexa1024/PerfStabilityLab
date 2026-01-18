@@ -45,3 +45,12 @@ sync-all:
 	git checkout main
 	@echo ""
 	@echo "All branches synced!"
+
+new-br:
+	git checkout main
+	git pull origin main
+	@if [ -z "$(branch)" ]; then \
+    		echo "Error: branch name is required. Usage: make new-br branch='your new branch name'"; \
+    		exit 1; \
+    fi
+	git checkout -b $(branch) main
